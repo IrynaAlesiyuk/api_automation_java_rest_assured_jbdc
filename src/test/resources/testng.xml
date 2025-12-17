@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="RestAssuredSuite" parallel="tests" thread-count="2">
+    <test name="UserApiDbTest">
+        <classes>
+            <class name="tests.UserApiDbTest"/>
+        </classes>
+    </test>
+    <test name="UserApiTest">
+        <classes>
+            <class name="tests.UserApiTest"/>
+        </classes>
+    </test>
+</suite>
