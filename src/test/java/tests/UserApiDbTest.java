@@ -36,9 +36,6 @@ public class UserApiDbTest {
                 repository.exists(user.getId()),
                 "User should exist in DB after API call"
         );
-        System.out.println(
-                Thread.currentThread().getName()
-        );
     }
 
     @Test

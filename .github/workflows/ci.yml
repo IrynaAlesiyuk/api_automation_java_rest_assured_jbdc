@@ -1,41 +1,31 @@
-name: Java Playwright CI
+name: CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
+    branches: [main]
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout repository
-      - uses: actions/checkout@v3
+      # 1. Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      # 2. Setup JDK
-      - name: Set up JDK
+      # 2. Set up JDK
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          distribution: temurin
+          java-version: 17
 
-      # 3. Setup Node.js for Playwright
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
+      # 3. Build project
+      - name: Build with Maven
+        run: mvn clean compile
 
-      # 4. Install Playwright browsers
-      - name: Install Playwright Browsers
-        run: npx playwright install
-
-      # 5. Maven build
-      - name: Maven build
-        run: mvn clean install
-
-      # 6. Run tests
-      - name: Run tests
+      # 4. Run tests
+      - name: Run TestNG tests
         run: mvn test
-        continue-on-error: true # ensures next steps run even if tests fail
