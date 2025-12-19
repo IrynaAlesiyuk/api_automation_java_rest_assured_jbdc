@@ -2,7 +2,7 @@ package db.repository;
 
 
 import db.DbClient;
-import model.db.UserDb;
+import db.model.UserDb;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

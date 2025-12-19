@@ -20,6 +20,7 @@
     <lombok.version>1.18.30</lombok.version>
     <slf4j.api.version>2.0.9</slf4j.api.version>
     <slf4j.simple.version>2.0.9</slf4j.simple.version>
+    <assertj.core.version>3.24.2</assertj.core.version>
   </properties>
 
   <dependencies>
@@ -51,6 +52,12 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${assertj.core.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
       <version>${jackson.databind.version}</version>
@@ -73,4 +80,16 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>9</source>
+          <target>9</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

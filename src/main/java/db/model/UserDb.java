@@ -1,4 +1,4 @@
-package model.db;
+package db.model;
 
 
 import lombok.AllArgsConstructor;
