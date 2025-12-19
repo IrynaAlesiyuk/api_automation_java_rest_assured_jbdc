@@ -14,7 +14,7 @@ public class UserApiTest extends BaseTest {
     @Test
     public void testGetUser() {
         //Act
-        Response res = reqCreator.sendGet("/users/{id}", Map.of("id", 1));
+        Response res = reqCreator.sendGet("/users/{id}", Map.of("id", 1), null);
         User user = parser.parse(res, User.class);
 
         //Assert
@@ -32,7 +32,7 @@ public class UserApiTest extends BaseTest {
         expectedUser.setAddress(expectedAddress);
 
         //Act
-        Response res = reqCreator.sendGet("/users/{id}", Map.of("id", 1));
+        Response res = reqCreator.sendGet("/users/{id}", Map.of("id", 1), null);
         User actualUser = parser.parse(res, User.class);
 
         //Assert
