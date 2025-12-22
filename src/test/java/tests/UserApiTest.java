@@ -7,6 +7,9 @@ import org.testng.annotations.Test;
 
 import java.util.Map;
 
+import static common.constants.PathParams.ID;
+import static common.constants.Suburls.USERS_BY_ID;
+
 
 public class UserApiTest extends BaseTest {
 
@@ -14,7 +17,7 @@ public class UserApiTest extends BaseTest {
     @Test
     public void testGetUser() {
         //Act
-        Response res = reqCreator.sendGet("/users/{id}", Map.of("id", 1), null);
+        Response res = reqCreator.sendGet(USERS_BY_ID, Map.of(ID, 1), null);
         User user = parser.parse(res, User.class);
 
         //Assert
@@ -32,7 +35,7 @@ public class UserApiTest extends BaseTest {
         expectedUser.setAddress(expectedAddress);
 
         //Act
-        Response res = reqCreator.sendGet("/users/{id}", Map.of("id", 1), null);
+        Response res = reqCreator.sendGet(USERS_BY_ID, Map.of(ID, 1), null);
         User actualUser = parser.parse(res, User.class);
 
         //Assert
